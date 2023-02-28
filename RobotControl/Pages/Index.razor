@@ -1,0 +1,14 @@
+﻿@page "/"
+@using RobotControl.Data;
+
+<PageTitle>Index</PageTitle>
+
+<h1>Hello, nworld!</h1>
+
+
+
+<button @onclick='()=>RobotCommands.SendCommand("Forward")'>Forward</button>
+<button @onclick='()=>RobotCommands.SendCommand("Backward")'>Backward</button>
+<button @onclick='()=>RobotCommands.SendCommand("Left")'>Left</button>
+<button @onclick='()=>RobotCommands.SendCommand("Right")'>Right</button>
+<button @onclick='()=>RobotCommands.SendCommand("Stop")'>Stop</button>
