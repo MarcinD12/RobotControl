@@ -7,8 +7,9 @@
 
 
 
-<button @onclick='()=>RobotCommands.SendCommand("Forward")'>Forward</button>
-<button @onclick='()=>RobotCommands.SendCommand("Backward")'>Backward</button>
-<button @onclick='()=>RobotCommands.SendCommand("Left")'>Left</button>
-<button @onclick='()=>RobotCommands.SendCommand("Right")'>Right</button>
-<button @onclick='()=>RobotCommands.SendCommand("Stop")'>Stop</button>
+<button @onclick='()=>RobotCommands.SetDirection("forward")'>Forward</button>
+<button @onclick='()=>RobotCommands.SetDirection("backward")'>Backward</button>
+<button @onclick='()=>RobotCommands.SetTurn("right",90)'>Right</button>
+<button @onclick='()=>RobotCommands.SetTurn("halfright",45)'>Right '45'</button>
+<button @onclick='()=>RobotCommands.SetTurn("left",-90)'>Left</button>
+<button @onclick='()=>RobotCommands.SetTurn("halfleft",-45)'>Left '45'</button>
