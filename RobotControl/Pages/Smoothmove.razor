@@ -1,0 +1,20 @@
+﻿@page "/smooth"
+@using RobotControl.Data;
+
+<PageTitle>Smooth</PageTitle>
+
+<h1>Hello, nworld!</h1>
+<div class="steering">
+<div class="btngrid">
+        @*        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("halfleft")'>Left '45 </button>
+*@        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("forward")'>Forward</button>
+        @*        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("halfright")' @onmouseup='()=>RobotSteering.MoveStop()'>Right '45</button>
+*@        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("left")'>Left</button>
+        <button class="movebtn">Stop</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("right")'>Right</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("backward")'>Backward</button>
+</div>
+</div>
+
+
+

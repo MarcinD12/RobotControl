@@ -1,29 +1,44 @@
-﻿using System.Text.Json;
+﻿using System.Text;
+using System.Text.Json;
+using static System.Net.WebRequestMethods;
+
 namespace RobotControl.Data
 {
-    public static class RobotCommands
+    public static class RobotSteering
+        
     {
-        static HttpClient httpClient= new HttpClient();
-        public static  void  SetDirection(string command)
+        private static Dictionary<string, string> DataPackage = new Dictionary<string, string>() { { "mode", "grid" }, { "command", "stop" }, { "angle", "0" }, { "step", "0" } };
+
+        private static HttpClient httpClient = new HttpClient()
         {
-            Console.WriteLine(DateTime.Now);
-             Console.WriteLine("command set to: "+command);
-            var content=new  StringContent(command);
-            httpClient.PutAsync($"https://localhost:44360/Robot/SetDirection?command={command}", content);
-        }
-        public static void SetTurn(string direction,int angle)
+            
+        };
+        public static async void SendCommands()
         {
-            Dictionary<string,string> dict = new Dictionary<string,string>();
-            dict.Add("command", direction);
-            dict.Add("angle", angle.ToString());
-            Console.WriteLine(DateTime.Now);
-            Console.WriteLine("command set to: " + angle);
-            var content = new StringContent(JsonSerializer.Serialize(dict));
-            //httpClient.PutAsync($"https://localhost:44360/Robot/SetTurn?command={content}", content);
-            var xd=httpClient.PutAsync($"https://localhost:44360/Robot/SetTurn?direction={direction}&angle={angle}", content).Result;
-            Console.WriteLine(xd);
+            HttpContent content = new StringContent(JsonSerializer.Serialize(DataPackage), Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await httpClient.PutAsync("https://localhost:7073/Robot/SetDirection", content);
+            Console.WriteLine(response.StatusCode);
+            Console.WriteLine(response.Content.ReadAsStringAsync().Result);
         }
 
+        public static void  SetDirectionGrid(string direction,string distance)
+        {
+            DataPackage["command"]= direction;
+            DataPackage["step"] = distance;
+            SendCommands();
+        }
+        
+        public static async Task SetMoveSmooth(string direction)
+        {
+            DataPackage["command"] = direction;
+            SendCommands();
+        }
+        public static void MoveStop()
+        {
+        DataPackage["command"] = "stop";
+            SendCommands();
+        }
+        //44360
 
     }
 }

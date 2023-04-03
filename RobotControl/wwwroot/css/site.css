@@ -66,3 +66,29 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.movebtn {
+    height: 100px;
+    width: 100px;
+    font-size: 16px;
+    margin: 10px 10px;
+
+}
+
+.movebtn:last-child {
+        grid-row: 3;
+        grid-column: 2;
+        align-items: center;
+    }
+
+.btngrid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    display: grid;
+    justify-content: center;
+    
+}
+.steering {
+    width: 300px;
+    margin:auto;
+}
