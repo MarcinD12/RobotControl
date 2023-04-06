@@ -16,7 +16,7 @@ namespace RobotControl.Data
         public static async void SendCommands()
         {
             HttpContent content = new StringContent(JsonSerializer.Serialize(DataPackage), Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await httpClient.PutAsync("https://localhost:7073/Robot/SetDirection", content);
+            HttpResponseMessage response = await httpClient.PutAsync("https://localhost:44360/Robot/SetTurn", content);
             Console.WriteLine(response.StatusCode);
             Console.WriteLine(response.Content.ReadAsStringAsync().Result);
         }
@@ -28,7 +28,7 @@ namespace RobotControl.Data
             SendCommands();
         }
         
-        public static async Task SetMoveSmooth(string direction)
+        public static void SetMoveSmooth(string direction)
         {
             DataPackage["command"] = direction;
             SendCommands();
