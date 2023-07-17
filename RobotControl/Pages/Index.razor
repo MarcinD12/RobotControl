@@ -1,20 +1,29 @@
 ﻿@page "/"
 @using RobotControl.Data;
-
+@using System.Threading
+@using System.Timers
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, nworld!</h1>
 <div class="steering">
-<div class="btngrid">
+@*    <video src="/api/VideoProxy/stream" controls></video>
+*@
+@*    <iframe width="480" height="270" src="http://192.168.0.80:81/stream" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+*@
+
+    @*<img alt="streaming test" src="https://8165-2a02-a31d-a148-cf00-a0bd-f56-5290-245d.ngrok-free.app/stream" />*@
+    <div class="btngrid">
         <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("halfleft")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("halfleft")'>Left '45 </button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("forward")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("forward")'>Forward</button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("halfright")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("halfright")'>Right '45</button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("left")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("left")'>Left</button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("stop")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.MoveStop()'>Stop</button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("right")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("right")'>Right</button>
-        <button class="movebtn" @onmousedown='()=>RobotSteering.SetMoveSmooth("backward")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("backward")'>Backward</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("forward")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("forward")'>Forward</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("halfright")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("halfright")'>Right '45</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("left")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("left")'>Left</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("stop")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.MoveStop()'>Stop</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("right")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("right")'>Right</button>
+        <button class="movebtn" @onclick='()=>RobotSteering.SetMoveSmooth("backward")' @onmouseup='()=>RobotSteering.MoveStop()' @ontouchend='()=>RobotSteering.MoveStop()' @ontouchstart='()=>RobotSteering.SetMoveSmooth("backward")'>Backward</button>
+    </div
+    
+    
 </div>
-</div>
+
 
 
 

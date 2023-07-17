@@ -31,6 +31,16 @@ main[b-9x2azsv6mo] {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+.center[b-9x2azsv6mo] {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.grid-container[b-9x2azsv6mo] {
+    display: grid;
+    background-color:red;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth)[b-9x2azsv6mo] {

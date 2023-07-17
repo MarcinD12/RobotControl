@@ -30,6 +30,16 @@ main {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+.grid-container {
+    display: grid;
+    background-color:red;
+}
 
 @media (max-width: 640.98px) {
     .top-row:not(.auth) {
